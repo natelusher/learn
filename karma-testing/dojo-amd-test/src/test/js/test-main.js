@@ -15,7 +15,7 @@ var dojoConfig = {
             { name: "dojo", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.2/dojo" },
             { name: "dijit", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.2/dijit" },
             { name: "dojox", location: "http://ajax.googleapis.com/ajax/libs/dojo/1.9.2/dojox" },
-            { name: "my", location: "/base/src/js/my" }
+            { name: "my", location: "/base/src/main/js/my" }
    ]
 };
 

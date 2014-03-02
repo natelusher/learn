@@ -14,12 +14,25 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-//       'http://ajax.googleapis.com/ajax/libs/dojo/1.9.2/dojo/dojo.js',
-       'src/js/main.js',
-       {pattern: 'src/js/**/*.js', included:false},
-       {pattern: 'src/test/**/*Spec.js', included:false}
+       // setup - including packages
+       'src/test/js/test-main.js',
+
+       // some dependencies
+       {pattern: 'http://code.jquery.com/jquery-1.8.3.min.js', watched: false, served: true, included: true},
+       {pattern: 'http://cloud.github.com/downloads/velesin/jasmine-jquery/jasmine-jquery-1.3.1.js', watched: false, served: true, included: true},
+
+
+       // js source - loaded as dojo modules
+       {pattern: 'src/main/js/**/*.js', included:false},
+
+       // test files
+       {pattern: 'src/test/js/**/*Spec.js', included:false},
+       
+       // fixtures	
+       {pattern: 'src/test/fixtures/**/*.html', included:false}
     ],
 
+    preprocessors: {'**/.html': [] },
 
     // list of files to exclude
     exclude: [
