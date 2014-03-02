@@ -32,8 +32,25 @@ module.exports = function(config) {
        {pattern: 'src/test/fixtures/**/*.html', included:false}
     ],
 
-    preprocessors: {'**/.html': [] },
+    preprocessors: {
+        '**/.html': [],
+        'src/main/js/**/*.js': ['coverage']
+    },
 
+    coverageReporter: {
+	reporters:[
+    		{type: 'html', dir:'test-results/coverage/html/'},
+        	{type: 'cobertura', dir:'test-results/coverage/cobertura/'},
+	    	{type: 'text-summary', dir:'test-results/coverage/',file:'coverage-summary.txt'}
+		]
+
+    },
+    
+    junitReporter: {
+      outputFile: 'test-results/test-results-junit.xml',
+      suite: ''
+    }, 
+    
     // list of files to exclude
     exclude: [
       
@@ -42,7 +59,7 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['progress', 'dots', 'junit', 'coverage'],
 
 
     // web server port
